@@ -47,4 +47,12 @@ function calculateExercises(dailyHours: number[], targetAverageHours: number): a
   }
 }
 
-console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2))
+try {
+  const dailyHoursString = process.argv.slice(3)
+  const dailyHours = dailyHoursString.map( n => Number(n))
+  const target = Number(process.argv[2])
+  console.log(calculateExercises(dailyHours, target))
+} catch {
+  console.log(`Usage: <target average per day> <daily hours, space-separated>`)
+  process.exit(1)
+}
