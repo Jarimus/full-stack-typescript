@@ -1,0 +1,26 @@
+{
+  "name": "full-stack-typescript",
+  "version": "1.0.0",
+  "description": "Exercises for Full Stack Open, part 9",
+  "homepage": "https://github.com/Jarimus/full-stack-typescript#readme",
+  "bugs": {
+    "url": "https://github.com/Jarimus/full-stack-typescript/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jarimus/full-stack-typescript.git"
+  },
+  "license": "ISC",
+  "author": "Jari Ahonen",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "ts-node": "ts-node",
+    "calculateBmi": "ts-node bmiCalculator.ts"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
