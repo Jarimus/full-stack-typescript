@@ -10,7 +10,7 @@ interface analysis {
   ratingDescription: string
 }
 
-function calculateExercises(dailyHours: number[], targetAverageHours: number): analysis {
+export function calculateExercises(dailyHours: number[], targetAverageHours: number): analysis {
   // number of days
   const periodLength = dailyHours.length
   // number of training days

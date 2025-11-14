@@ -1,4 +1,4 @@
-function calculateBmi(height: number, weight: number): string {
+export function calculateBmi(height: number, weight: number): string {
   height = height / 100 // To centimeters
   const bmi = weight / (height * height)
 
@@ -26,11 +26,14 @@ function calculateBmi(height: number, weight: number): string {
   return "Obese (Class III)"
 }
 
-try {
-  const height = Number(process.argv[2])
-  const weight = Number(process.argv[3])
-  console.log(calculateBmi(height, weight))
-} catch {
-  console.log(`Usage: <height (cm)> <weight (kg)>`)
-  process.exit(1)
+
+if (require.main === module) {
+  try {
+    const height = Number(process.argv[2])
+    const weight = Number(process.argv[3])
+    console.log(calculateBmi(height, weight))
+  } catch {
+    console.log(`Usage: <height (cm)> <weight (kg)>`)
+    process.exit(1)
+  }
 }
