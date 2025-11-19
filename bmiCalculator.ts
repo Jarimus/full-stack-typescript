@@ -1,39 +1,38 @@
 export function calculateBmi(height: number, weight: number): string {
-  height = height / 100 // To centimeters
-  const bmi = weight / (height * height)
+  const bmi = weight / (height * height);
 
   if (bmi < 16) {
-    return "Underweight (Severe thinness)"
+    return "Underweight (Severe thinness)";
   }
   if (bmi < 17) {
-    return "Underweight (Moderate thinness)"
+    return "Underweight (Moderate thinness)";
   }
   if (bmi < 18.5) {
-    return "Underweight (Mild thinness)"
+    return "Underweight (Mild thinness)";
   }
   if (bmi < 25) {
-    return "Normal range"
+    return "Normal range";
   }
   if (bmi < 30) {
-    return "Overweight (Pre-obese)"
+    return "Overweight (Pre-obese)";
   }
   if (bmi < 35) {
-    return "Obese (Class I)"
+    return "Obese (Class I)";
   }
   if (bmi < 40) {
-    return "Obese (Class II)"
+    return "Obese (Class II)";
   }
-  return "Obese (Class III)"
+  return "Obese (Class III)";
 }
 
 
 if (require.main === module) {
   try {
-    const height = Number(process.argv[2])
-    const weight = Number(process.argv[3])
-    console.log(calculateBmi(height, weight))
+    const height = Number(process.argv[2]);
+    const weight = Number(process.argv[3]);
+    console.log(calculateBmi(height, weight));
   } catch {
-    console.log(`Usage: <height (cm)> <weight (kg)>`)
-    process.exit(1)
+    console.log(`Usage: <height (cm)> <weight (kg)>`);
+    process.exit(1);
   }
 }

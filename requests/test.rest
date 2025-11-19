@@ -1,0 +1,45 @@
+POST http://localhost:3003/exercises HTTP/1.1
+Content-Type: application/json
+
+{
+  "daily_exercises": [1, 0, 2, 0, 3, 0, 2.5],
+  "target": 2.5
+}
+
+###
+# Missing exercises
+POST http://localhost:3003/exercises HTTP/1.1
+Content-Type: application/json
+
+{
+  "target": 1
+}
+
+###
+# Missing target
+POST http://localhost:3003/exercises HTTP/1.1
+Content-Type: application/json
+
+{
+  "daily_exercises": [1, 0, 2, 0, 3, 0, 2.5]
+}
+
+###
+# Malformatted parameters
+POST http://localhost:3003/exercises HTTP/1.1
+Content-Type: application/json
+
+{
+  "daily_exercises": [1, 5, 2, "zaaad", 3, 0, 2.5],
+  "target": 5
+}
+
+###
+# Strings can be converted to numbers
+POST http://localhost:3003/exercises HTTP/1.1
+Content-Type: application/json
+
+{
+  "daily_exercises": [1, "1", 2, "4", 3, 0, 2],
+  "target": 5
+}

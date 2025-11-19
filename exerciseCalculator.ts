@@ -1,4 +1,4 @@
-type rating = 1 | 2 | 3
+type rating = 1 | 2 | 3;
 
 interface analysis {
   periodLength: number,
@@ -12,29 +12,29 @@ interface analysis {
 
 export function calculateExercises(dailyHours: number[], targetAverageHours: number): analysis {
   // number of days
-  const periodLength = dailyHours.length
+  const periodLength = dailyHours.length;
   // number of training days
-  const trainingDays = dailyHours.filter( n => n != 0).length
+  const trainingDays = dailyHours.filter( n => n != 0).length;
   // the original target average hours
-  const target = targetAverageHours
+  const target = targetAverageHours;
   // calculated average
-  const sum = dailyHours.reduce( (t, v) => t + v)
-  const average = sum / periodLength
+  const sum = dailyHours.reduce( (t, v) => t + v);
+  const average = sum / periodLength;
   // target reached (boolean as 0 or 1)
-  const success = average >= target
+  const success = average >= target;
   // rating (1-3)
-  const r = average / target
-  let ratingDescription: string
-  let rating: rating
+  const r = average / target;
+  let ratingDescription: string;
+  let rating: rating;
   if (r >= 1) {
-    ratingDescription = "Target reached!"
-    rating = 3
+    ratingDescription = "Target reached!";
+    rating = 3;
   } else if (r >= 0.5) {
-    ratingDescription = "Good effort!"
-    rating = 2
+    ratingDescription = "Good effort!";
+    rating = 2;
   } else {
-    ratingDescription = "More effort next time!"
-    rating = 1
+    ratingDescription = "More effort next time!";
+    rating = 1;
   }
   return {
     periodLength: periodLength,
@@ -44,15 +44,17 @@ export function calculateExercises(dailyHours: number[], targetAverageHours: num
     ratingDescription: ratingDescription,
     target: target,
     average: average,
-  }
+  };
 }
 
-try {
-  const dailyHoursString = process.argv.slice(3)
-  const dailyHours = dailyHoursString.map( n => Number(n))
-  const target = Number(process.argv[2])
-  console.log(calculateExercises(dailyHours, target))
-} catch {
-  console.log(`Usage: <target average per day> <daily hours, space-separated>`)
-  process.exit(1)
+if (require.main === module) {
+  try {
+    const dailyHoursString = process.argv.slice(3);
+    const dailyHours = dailyHoursString.map( n => Number(n));
+    const target = Number(process.argv[2]);
+    console.log(calculateExercises(dailyHours, target));
+  } catch {
+    console.log(`Usage: <target average per day> <daily hours, space-separated>`);
+    process.exit(1);
+  }
 }
